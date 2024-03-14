@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProjectsComponent } from './proyectos/projects.component';
 import { HeaderComponent } from './header/header.component';
+import { LocationStrategy, HashLocationStrategy, DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    DatePipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
